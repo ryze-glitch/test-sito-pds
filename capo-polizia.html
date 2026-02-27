@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capo della Polizia - Polizia di Stato IPRP</title>
+    <title>La Dirigenza - Polizia di Stato IPRP</title>
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
@@ -23,6 +23,7 @@
             --text-hover: #ffffff;
             --accent-blue: #2563eb; 
             --accent-hover: #1d4ed8;
+            --accent-gold: #d4af37;
         }
 
         * {
@@ -119,6 +120,7 @@
             overflow: hidden;
             padding-top: 60px;
             background-color: var(--bg-dark);
+            border-bottom: 1px solid var(--nav-border);
         }
 
         .hero-bg {
@@ -127,23 +129,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://i.imgur.com/Pcg0nmg.jpg'); /* Stesso sfondo per coerenza */
+            background-image: url('https://i.imgur.com/8fsNUu2.jpg'); /* Usa la foto di Marco Ferri come sfondo della sezione */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             z-index: 1;
             opacity: 0;
             animation: fadeInBanner 1.5s ease-in-out forwards;
-        }
-
-        .hero-bg::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(9, 10, 15, 0.6), var(--bg-dark));
+            filter: blur(8px) brightness(0.3); /* Sfondo scuro e sfocato */
         }
 
         @keyframes fadeInBanner { 0% { opacity: 0; } 100% { opacity: 1; } }
@@ -156,89 +149,114 @@
         .page-content {
             position: relative;
             z-index: 3;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px 100px;
+            max-width: 1300px;
+            margin: -40px auto 100px; /* Effetto sovrapposizione */
+            padding: 0 20px;
         }
 
         /* BREADCRUMB */
-        .breadcrumb { display: flex; align-items: center; gap: 12px; font-size: 0.95rem; color: var(--text-muted); margin-bottom: 40px; padding: 12px 20px; background: rgba(255, 255, 255, 0.03); border-radius: 8px; border: 1px solid var(--nav-border); width: fit-content; }
+        .breadcrumb { display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 0.95rem; color: var(--text-muted); margin-bottom: 50px; padding: 12px 20px; background: var(--nav-bg); backdrop-filter: blur(16px); border-radius: 8px; border: 1px solid var(--nav-border); width: fit-content; margin-left: auto; margin-right: auto; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
         .breadcrumb a { color: var(--text-main); font-weight: 500; transition: color 0.2s; }
         .breadcrumb a:hover { color: var(--accent-blue); }
         .breadcrumb span { color: var(--accent-blue); font-weight: 600; }
 
-        /* PANNELLO PRINCIPALE VETRO */
-        .glass-panel {
-            background: var(--nav-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--nav-border);
-            border-radius: 16px;
-            padding: 50px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        /* --- GRIGLIA DIRIGENZA A 3 COLONNE --- */
+        .dirigenza-grid {
+            display: flex;
+            justify-content: center;
+            align-items: stretch; /* Le card avranno la stessa altezza */
+            gap: 30px;
+            flex-wrap: wrap;
         }
 
-        /* LAYOUT DIVISO (Immagine a sinistra, testo a destra) */
-        .profile-section {
+        /* Stile base delle Card dei Dirigenti */
+        .dirigente-card {
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--nav-border);
+            border-radius: 20px;
+            padding: 40px 25px;
+            text-align: center;
+            width: 320px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, border-color 0.3s ease;
             display: flex;
-            gap: 40px;
+            flex-direction: column;
             align-items: center;
         }
 
-        .profile-img-container {
-            flex: 0 0 45%;
-            max-width: 45%;
-        }
-
-        .profile-img-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .profile-img-container img:hover {
-            transform: scale(1.02);
+        /* Hover generale */
+        .dirigente-card:hover {
+            transform: translateY(-10px);
             border-color: var(--accent-blue);
         }
 
-        .profile-text-container {
-            flex: 1;
-            text-align: left;
+        /* Stile speciale per la Card Centrale (Marco Ferri) */
+        .dirigente-card.center-card {
+            width: 360px; /* Leggermente più larga */
+            transform: scale(1.05); /* Messa in rilievo */
+            border-color: rgba(212, 175, 55, 0.3); /* Bordo dorato leggero */
+            background: rgba(20, 22, 28, 0.85); /* Leggermente meno trasparente */
+            z-index: 2;
         }
 
-        .profile-text-container h2 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: var(--accent-blue);
-            margin-bottom: 5px;
-            line-height: 1.2;
-            text-transform: uppercase;
+        .dirigente-card.center-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
         }
 
-        .profile-text-container h3 {
-            font-size: 1.1rem;
-            color: var(--text-main);
+        /* Immagini Profilo */
+        .dirigente-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
             margin-bottom: 25px;
-            font-weight: 400;
-            letter-spacing: 1px;
-            border-bottom: 1px solid var(--nav-border);
-            padding-bottom: 15px;
-            display: inline-block;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            transition: border-color 0.3s ease;
         }
 
-        .profile-text-container p {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            font-weight: 300;
+        .center-card .dirigente-img {
+            width: 190px;
+            height: 190px;
+            border-color: var(--accent-gold);
         }
 
-        .profile-text-container p strong {
+        /* Testi interni alle Card */
+        .dirigente-name {
+            font-size: 1.6rem;
+            font-weight: 800;
             color: var(--text-main);
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        .center-card .dirigente-name {
+            font-size: 1.8rem;
+        }
+
+        .dirigente-role {
+            font-size: 0.95rem;
+            color: var(--accent-blue);
             font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        .center-card .dirigente-role {
+            color: var(--accent-gold);
+        }
+
+        .dirigente-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-weight: 300;
         }
 
         /* --- FOOTER --- */
@@ -253,18 +271,23 @@
             z-index: 3;
         }
 
-        /* RESPONSIVE */
+        /* --- RESPONSIVE --- */
         @media (max-width: 1200px) { .nav-center { display: none; } }
-        @media (max-width: 900px) { 
-            .profile-section { flex-direction: column; text-align: center; }
-            .profile-img-container { max-width: 80%; }
-            .profile-text-container { text-align: center; }
-            .profile-text-container h3 { display: block; }
+        @media (max-width: 1100px) { 
+            .dirigenza-grid { gap: 20px; }
+            .dirigente-card { width: 300px; }
+            .dirigente-card.center-card { width: 320px; transform: scale(1); }
+            .dirigente-card.center-card:hover { transform: translateY(-10px); }
+        }
+        @media (max-width: 950px) { 
+            /* Da Tablet in giù, impiliamo le card */
+            .dirigenza-grid { flex-direction: column; align-items: center; }
+            .dirigente-card { width: 100%; max-width: 400px; }
+            /* Magia: Su mobile portiamo la card centrale (Marco) come PRIMA della lista */
+            .dirigente-card.center-card { order: -1; margin-bottom: 20px; }
         }
         @media (max-width: 768px) { 
             .hero-content h1 { font-size: 2.5rem; } 
-            .glass-panel { padding: 30px 20px; }
-            .profile-img-container { max-width: 100%; }
         }
     </style>
 </head>
@@ -286,7 +309,7 @@
                 <div class="dropdown">
                     <a href="#" class="active" style="color: var(--text-hover);"><i class="fas fa-search"></i> Chi Siamo <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
                     <div class="dropdown-menu">
-                        <a href="capo-polizia.html" style="color: var(--text-hover); background: rgba(255, 255, 255, 0.05);"><i class="fas fa-user-tie"></i> Il capo della Polizia</a>
+                        <a href="dirigenza.html" style="color: var(--text-hover); background: rgba(255, 255, 255, 0.05);"><i class="fas fa-user-tie"></i> La Dirigenza</a>
                         <a href="#"><i class="fas fa-book"></i> Storia della Polizia</a>
                     </div>
                 </div>
@@ -310,8 +333,8 @@
     <header class="hero-small">
         <div class="hero-bg"></div>
         <div class="hero-content">
-            <h1>IL CAPO DELLA POLIZIA</h1>
-            <p>Dirigente Generale di Pubblica Sicurezza</p>
+            <h1>LA DIRIGENZA</h1>
+            <p>I Vertici della Polizia di Stato</p>
         </div>
     </header>
 
@@ -323,28 +346,36 @@
             <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> 
             <a href="#">Chi Siamo</a>
             <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> 
-            <span>Capo della Polizia</span>
+            <span>La Dirigenza</span>
         </div>
 
-        <div class="glass-panel">
+        <div class="dirigenza-grid">
             
-            <div class="profile-section">
-                
-                <div class="profile-img-container">
-                    <img src="https://i.imgur.com/8fsNUu2.jpg" alt="Marco Ferri - Capo della Polizia">
+            <div class="dirigente-card">
+                <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=crop&w=500&q=80" alt="Jolen Iuliano" class="dirigente-img">
+                <div class="dirigente-name">Jolen Iuliano</div>
+                <div class="dirigente-role">Dirigente Superiore</div>
+                <div class="dirigente-desc">
+                    Affianca la direzione generale nel coordinamento tattico e amministrativo della Questura. Supervisiona i reparti speciali garantendo il mantenimento dell'ordine pubblico.
                 </div>
+            </div>
 
-                <div class="profile-text-container">
-                    <h2>Dirigente Generale di Pubblica Sicurezza</h2>
-                    <h3>Prefetto della Città di Roma - Marco Ferri</h3>
-                    
-                    <p>
-                        Il Dirigente Generale della Polizia di Stato, <strong>Marco Ferri</strong>, si è laureato in Giurisprudenza all'Università di Roma. Nel 2021 ha partecipato all'80° concorso per commissari, vincendo il concorso nel 2023. 
-                        <br><br>
-                        Successivamente è stato trasferito a Roma con l'incarico di Vice Questore nel 2023, ed è stato ufficialmente nominato Dirigente Generale di Pubblica Sicurezza il 6 Luglio 2024.
-                    </p>
+            <div class="dirigente-card center-card">
+                <img src="https://i.imgur.com/8fsNUu2.jpg" alt="Marco Ferri" class="dirigente-img">
+                <div class="dirigente-name">Marco Ferri</div>
+                <div class="dirigente-role">Dirigente Generale<br>Prefetto di Roma</div>
+                <div class="dirigente-desc">
+                    Massima autorità di Pubblica Sicurezza. Gestisce l'intera Questura centrale, determina le direttive operative e coordina le forze dell'ordine sul territorio romano.
                 </div>
+            </div>
 
+            <div class="dirigente-card">
+                <img src="https://i.imgur.com/Yy11WFJ.jpg" alt="Matteo Rossi" class="dirigente-img">
+                <div class="dirigente-name">Matteo Rossi</div>
+                <div class="dirigente-role">Primo Dirigente</div>
+                <div class="dirigente-desc">
+                    Responsabile diretto dell'operatività sul campo. Sovraintende alle indagini, alla gestione del personale di pattuglia e al pronto intervento in situazioni di criticità.
+                </div>
             </div>
 
         </div>
