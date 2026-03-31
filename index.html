@@ -159,13 +159,19 @@
             height: 25px;
         }
 
-        .dropdown:hover .dropdown-menu {
+        .dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu {
             visibility: visible;
             opacity: 1;
             /* Si ferma più giù senza accavallarsi alla navbar (15px di distacco) */
             transform: translate(-50%, 15px); 
         }
 
+
+        /* Focus states for keyboard navigation accessibility */
+        *:focus-visible {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 2px;
+        }
         .dropdown-menu a {
             padding: 10px 12px;
             border-radius: 8px;
