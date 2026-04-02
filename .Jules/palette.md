@@ -1,0 +1,3 @@
+## 2024-04-02 - Dropdowns Must Support Keyboard Focus
+**Learning:** Pure CSS dropdown menus relying solely on `:hover` trap keyboard users who cannot trigger the hover state. This completely blocks access to critical navigation items for those relying on assistive technologies or keyboard navigation.
+**Action:** When creating CSS-only dropdowns, always pair `:hover` with `:focus-within` on the parent container so the dropdown becomes visible when any element inside it receives keyboard focus. Additionally, ensure focusable elements have a clear visible focus state to show users where they are on the page.
