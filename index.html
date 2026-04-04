@@ -165,6 +165,15 @@
             /* Si ferma più giù senza accavallarsi alla navbar (15px di distacco) */
             transform: translate(-50%, 15px); 
         }
+        .dropdown:focus-within .dropdown-menu {
+            visibility: visible;
+            opacity: 1;
+            transform: translate(-50%, 15px);
+        }
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 4px;
+        }
 
         .dropdown-menu a {
             padding: 10px 12px;
