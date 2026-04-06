@@ -44,6 +44,13 @@
             color: inherit;
         }
 
+        /* --- ACCESSIBILITY --- */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
         /* --- NAVBAR FLOTTANTE CENTRATA --- */
         .navbar-wrapper {
             position: fixed;
@@ -159,7 +166,8 @@
             height: 25px;
         }
 
-        .dropdown:hover .dropdown-menu {
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu {
             visibility: visible;
             opacity: 1;
             /* Si ferma più giù senza accavallarsi alla navbar (15px di distacco) */
