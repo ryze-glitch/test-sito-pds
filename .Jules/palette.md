@@ -1,0 +1,3 @@
+## 2024-04-07 - Dropdown Menu Keyboard Accessibility
+**Learning:** CSS-only hover dropdown menus (`.dropdown:hover .dropdown-menu`) are completely inaccessible to keyboard users because they cannot be triggered by the `Tab` key. This breaks navigation for a significant portion of users.
+**Action:** Always use `:focus-within` alongside `:hover` for CSS dropdowns (`.dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu`). Also, ensure interactive elements (`<a>`, `<button>`) have distinct `:focus-visible` styles with a clear `outline` so users know where their keyboard focus is.
