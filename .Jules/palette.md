@@ -1,0 +1,3 @@
+## 2024-06-25 - CSS Dropdown Keyboard Accessibility
+**Learning:** Pure CSS dropdown menus using `:hover` to display sub-menus (`visibility: visible; opacity: 1;`) are fundamentally inaccessible to keyboard users unless they also trigger on `:focus-within`. When a user tabs to the dropdown trigger link, the `:hover` state is not activated, making it impossible to tab into the sub-links within the hidden `.dropdown-menu`.
+**Action:** When implementing CSS-only dropdowns, always pair `.dropdown:hover .dropdown-menu` with `.dropdown:focus-within .dropdown-menu`. Additionally, ensure the trigger element has `aria-haspopup="true"` and `aria-expanded="false"` to provide context for screen reader users.
