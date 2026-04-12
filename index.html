@@ -33,6 +33,13 @@
             font-family: 'Lexend', sans-serif;
         }
 
+        /* --- ACCESSIBILITA' TASTIERA --- */
+        *:focus-visible {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
@@ -159,7 +166,8 @@
             height: 25px;
         }
 
-        .dropdown:hover .dropdown-menu {
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu {
             visibility: visible;
             opacity: 1;
             /* Si ferma più giù senza accavallarsi alla navbar (15px di distacco) */
