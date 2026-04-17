@@ -40,6 +40,23 @@
 
         a { text-decoration: none; color: inherit; }
 
+        /* --- ACCESSIBILITY --- */
+        :focus-visible {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        button:focus-visible {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 2px;
+            border-radius: 999px;
+        }
+
+        .btn-scroll:focus-visible {
+            border-radius: 30px;
+        }
+
         /* --- NAVBAR FLOTTANTE CENTRATA --- */
         .navbar-wrapper {
             position: fixed;
@@ -305,7 +322,7 @@
                 <a href="#"><i class="fas fa-bullhorn"></i> Notizie</a>
                 
                 <div class="dropdown">
-                    <a href="#"><i class="fas fa-search"></i> Chi Siamo <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <a href="#" aria-haspopup="true" role="button"><i class="fas fa-search"></i> Chi Siamo <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
                     <div class="dropdown-menu">
                         <a href="#"><i class="fas fa-user-tie"></i> Il capo della Polizia</a>
                         <a href="#"><i class="fas fa-book"></i> Storia della Polizia</a>
@@ -318,7 +335,7 @@
             </div>
 
             <div class="nav-right">
-                <button class="nav-login-btn">
+                <button class="nav-login-btn" aria-label="Login - Accedi all'area riservata">
                     Login
                     <div class="icon-circle">
                         <i class="fas fa-lock"></i>

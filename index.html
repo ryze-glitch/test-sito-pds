@@ -44,6 +44,23 @@
             color: inherit;
         }
 
+        /* --- ACCESSIBILITY --- */
+        :focus-visible {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        button:focus-visible {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 2px;
+            border-radius: 999px;
+        }
+
+        .btn-scroll:focus-visible {
+            border-radius: 30px;
+        }
+
         /* --- NAVBAR FLOTTANTE CENTRATA --- */
         .navbar-wrapper {
             position: fixed;
@@ -513,7 +530,7 @@
                 <a href="#"><i class="fas fa-bullhorn"></i> Notizie</a>
                 
                 <div class="dropdown">
-                    <a href="#"><i class="fas fa-search"></i> Chi Siamo <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <a href="#" aria-haspopup="true" role="button"><i class="fas fa-search"></i> Chi Siamo <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
                     <div class="dropdown-menu">
                         <a href="capo-polizia.html"><i class="fas fa-user-tie"></i> Il Capo della Polizia</a>
                         <a href="#"><i class="fas fa-book"></i> Storia della Polizia</a>
@@ -526,7 +543,7 @@
             </div>
 
             <div class="nav-right">
-                <button class="nav-login-btn">
+                <button class="nav-login-btn" aria-label="Login - Accedi all'area riservata">
                     Login
                     <div class="icon-circle">
                         <i class="fas fa-lock"></i>
@@ -554,7 +571,7 @@
                 Via dei Peccatori N°761  -  <a href="mailto:dirigenzapds.iprp@gmail.com">dirigenzapds.iprp@gmail.com</a>  -  Tel: <a href="tel:113">113</a>
             </p>
 
-            <button class="btn-scroll" onclick="document.getElementById('servizi').scrollIntoView({behavior: 'smooth'})">
+            <button class="btn-scroll" onclick="document.getElementById('servizi').scrollIntoView({behavior: 'smooth'})" aria-label="Scorri ai servizi">
                 Scopri i Servizi <i class="fas fa-arrow-down" style="margin-left: 8px;"></i>
             </button>
         </div>
