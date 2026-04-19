@@ -1,0 +1,3 @@
+## 2024-05-24 - Accessibility: Missing Focus Rings in Dark Themes
+**Learning:** Relied on browser default focus outlines, which are often nearly invisible against dark backgrounds (like `--bg-dark`). Without explicit focus styling, keyboard users lose track of their position on the page, severely impacting navigability and violating WCAG 2.4.7 (Focus Visible).
+**Action:** Always implement explicit `:focus-visible` styles that provide sufficient contrast against the background. Using an existing high-contrast accent color (e.g., `var(--accent-blue)`) with an `outline-offset` ensures the focus ring is clearly distinguishable without altering the layout or relying on less semantic CSS properties.
