@@ -1,0 +1,3 @@
+## 2024-05-24 - Focus Visible Outlines for Keyboard Navigation
+**Learning:** Focus states shouldn't just rely on default browser styles, which can be inconsistent or have poor contrast against various backgrounds. Specifically, using the project's existing CSS variable `var(--accent-blue)` for the `:focus-visible` state outline maintains design consistency and provides strong, accessible visual feedback that helps keyboard users navigate without distracting mouse users.
+**Action:** When working on new elements or standardizing interactive patterns, proactively include a 2px offset outline utilizing standard project colors for `:focus-visible` to ensure keyboard navigation remains explicitly clear and consistent.
