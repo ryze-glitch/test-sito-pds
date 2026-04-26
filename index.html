@@ -159,7 +159,7 @@
             height: 25px;
         }
 
-        .dropdown:hover .dropdown-menu {
+        .dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu {
             visibility: visible;
             opacity: 1;
             /* Si ferma più giù senza accavallarsi alla navbar (15px di distacco) */
@@ -494,6 +494,11 @@
             .services-grid { grid-template-columns: 1fr; }
             .hero h1 { font-size: 3.5rem; }
         }
+
+        *:focus-visible {
+            outline: 2px solid var(--accent-blue);
+            outline-offset: 2px;
+        }
     </style>
 </head>
 <body>
@@ -513,7 +518,7 @@
                 <a href="#"><i class="fas fa-bullhorn"></i> Notizie</a>
                 
                 <div class="dropdown">
-                    <a href="#"><i class="fas fa-search"></i> Chi Siamo <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
+                    <a href="#" aria-haspopup="true"><i class="fas fa-search"></i> Chi Siamo <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: -2px;"></i></a>
                     <div class="dropdown-menu">
                         <a href="capo-polizia.html"><i class="fas fa-user-tie"></i> Il Capo della Polizia</a>
                         <a href="#"><i class="fas fa-book"></i> Storia della Polizia</a>
