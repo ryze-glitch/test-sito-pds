@@ -1,0 +1,3 @@
+## 2024-05-18 - CSS-only dropdowns need explicit keyboard accessibility
+**Learning:** CSS-only dropdown menus that rely solely on `:hover` to display submenus completely exclude keyboard-only users and screen readers unless explicitly styled for focus and marked up with ARIA. In static HTML sites like this one, it is a very common pattern to miss.
+**Action:** Always pair `:hover` selectors with `:focus-within` on the dropdown container (e.g., `.dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu`) and add `aria-haspopup="true"` to the trigger element to ensure both keyboard visibility and screen reader awareness.
