@@ -1,3 +1,6 @@
 ## 2024-05-18 - Single Stroke Focus for Micro-UX Changes
 **Learning:** Even when multiple related a11y issues exist (like hover-only menus, missing focus visible states, and missing aria-labels), fixing all of them at once violates the "micro-UX improvement under 50 lines" constraint and results in PR rejection. A "single stroke" approach must be strictly enforced.
 **Action:** When acting as Palette, identify multiple opportunities but selectively implement exactly ONE focused change (e.g., ONLY fixing keyboard access for dropdowns) to ensure the diff remains strictly under 50 lines.
+## 2024-05-19 - Keyboard Accessibility for CSS Dropdowns
+**Learning:** Static CSS dropdowns implemented with `:hover` completely lock out keyboard users. In this project, `index.html` had partial keyboard support but `capo-polizia.html` and `qualifiche.html` were missing the `:focus-within` selector and semantic `aria-haspopup="true"` attribute on the trigger link, creating inconsistent keyboard experiences.
+**Action:** When working on navigation menus, always ensure the `:hover` pseudo-class for dropdowns is paired with `:focus-within` on the container, and `aria-haspopup` is added to the interactive trigger so screen readers are aware of the menu structure.
