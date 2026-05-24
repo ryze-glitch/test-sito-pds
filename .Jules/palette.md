@@ -4,3 +4,6 @@
 ## 2024-05-22 - Keyboard Accessible Dropdowns
 **Learning:** Pure CSS dropdown menus relying only on `:hover` prevent keyboard-only users from accessing submenus. Adding `:focus-within` allows the menu to open when users tab into it, meeting WCAG keyboard accessibility standards without requiring JavaScript.
 **Action:** When auditing navigation menus, always ensure `:hover` selectors for dropdowns are paired with `:focus-within` to guarantee keyboard accessibility.
+## 2024-05-24 - Interactive Focus Visibility
+**Learning:** Pure CSS focus indicators (`:focus-visible`) are a highly effective, low-risk way to dramatically improve keyboard accessibility across static HTML sites without touching JavaScript or breaking pointer-based interactions.
+**Action:** Always verify keyboard focus visibility using `Tab` navigation via Playwright. Use existing design tokens (e.g., `var(--accent-blue)`) to ensure new focus states match the application's aesthetic.
