@@ -4,3 +4,6 @@
 ## 2024-05-22 - Keyboard Accessible Dropdowns
 **Learning:** Pure CSS dropdown menus relying only on `:hover` prevent keyboard-only users from accessing submenus. Adding `:focus-within` allows the menu to open when users tab into it, meeting WCAG keyboard accessibility standards without requiring JavaScript.
 **Action:** When auditing navigation menus, always ensure `:hover` selectors for dropdowns are paired with `:focus-within` to guarantee keyboard accessibility.
+## 2024-06-11 - Natural Focus Outlines
+**Learning:** Hardcoding a specific `border-radius` (like `4px`) on global `:focus-visible` pseudo-classes (e.g., `a:focus-visible, button:focus-visible`) breaks the visual design of inherently rounded elements like pill-shaped buttons. When such elements receive focus, the focus ring awkwardly forces a square-ish shape with 4px corners instead of following the element's actual shape.
+**Action:** When defining global focus states, rely on `outline`, `outline-offset`, and `box-shadow`. Do not specify `border-radius` on the focus state itself; let the modern browser automatically inherit and curve the outline to perfectly match the element's base `border-radius`.
