@@ -4,3 +4,6 @@
 ## 2024-05-22 - Keyboard Accessible Dropdowns
 **Learning:** Pure CSS dropdown menus relying only on `:hover` prevent keyboard-only users from accessing submenus. Adding `:focus-within` allows the menu to open when users tab into it, meeting WCAG keyboard accessibility standards without requiring JavaScript.
 **Action:** When auditing navigation menus, always ensure `:hover` selectors for dropdowns are paired with `:focus-within` to guarantee keyboard accessibility.
+## 2024-05-18 - Semantic Breadcrumb Navigation
+**Learning:** This app uses `div` elements for breadcrumbs with plain text and non-semantic separators. Screen readers don't recognize this structure as navigation, making it harder for users to understand where they are in the hierarchy.
+**Action:** Use a semantic `<nav aria-label="Breadcrumb">` wrapper, mark decorative separator icons with `aria-hidden="true"`, and indicate the active page element with `aria-current="page"`.
