@@ -4,3 +4,6 @@
 ## 2024-05-22 - Keyboard Accessible Dropdowns
 **Learning:** Pure CSS dropdown menus relying only on `:hover` prevent keyboard-only users from accessing submenus. Adding `:focus-within` allows the menu to open when users tab into it, meeting WCAG keyboard accessibility standards without requiring JavaScript.
 **Action:** When auditing navigation menus, always ensure `:hover` selectors for dropdowns are paired with `:focus-within` to guarantee keyboard accessibility.
+## 2024-05-23 - Accessible Breadcrumb Navigation
+**Learning:** Using a simple `<div>` for breadcrumbs misses a critical accessibility opportunity. Wrapping breadcrumbs in a `<nav aria-label="Breadcrumb">`, hiding decorative separators with `aria-hidden="true"`, and explicitly marking the current page with `aria-current="page"` transforms a visual component into a robust, assistive-technology friendly navigation element without altering its design.
+**Action:** Always upgrade `<div>` based breadcrumbs to `<nav aria-label="Breadcrumb">` and explicitly manage screen-reader visibility for icons.
